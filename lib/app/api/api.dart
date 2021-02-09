@@ -1,22 +1,21 @@
 class Api {
-  static String ipConfig = "192.168.0.103";
+  static String ipConfig = "http://" + "192.168.0.103";
 
-  static String loginUrl = "http://" + ipConfig + "/hellogram/login";
-  static String getUrl = "http://" + ipConfig + "/hellogram/getpost.php";
+  static String loginUrl = ipConfig + "/hellogram/login";
+  static String getUrl = ipConfig + "/hellogram/getpost.php";
 
-  static String getPostUrl = "http://" + ipConfig + "/hellogram/posts";
-  static String registerUrl = "http://" + ipConfig + "/hellogram/register";
-  static String getImageUrl =
-      "http://" + ipConfig + "/hellogram/image?post_id=";
-  static String getUserUrl = "http://" + ipConfig + "/hellogram/user?user_id=";
+  static String getPostUrl = ipConfig + "/hellogram/posts";
+  static String registerUrl = ipConfig + "/hellogram/register";
+  static String getImageUrl = ipConfig + "/hellogram/image?post_id=";
+  static String getUserUrl = ipConfig + "/hellogram/user?user_id=";
   static String getProfileImgUrl =
-      "http://" + ipConfig + "/hellogram/profile_image?user_id=";
-  static String onLikeUrl = "http://" + ipConfig + "/hellogram/like?";
+      ipConfig + "/hellogram/profile_image?user_id=";
 
-  static String countLikeUrl =
-      "http://" + ipConfig + "/hellogram/countlike?post_id=";
+  static String onLikeUrl = ipConfig + "/hellogram/like?";
 
-  static String onLikeCheckUrl = "http://" + ipConfig + "/hellogram/likecheck?";
+  static String countLikeUrl = ipConfig + "/hellogram/countlike?post_id=";
 
-  static String imageUrl = "http://" + ipConfig + "/hellogram/";
+  static String onLikeCheckUrl = ipConfig + "/hellogram/likecheck?";
+
+  static String imageUrl = ipConfig + "/hellogram/";
 }
