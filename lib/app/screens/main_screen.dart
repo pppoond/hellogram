@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hellogram/app/screens/array_widget/array_widget.dart';
 import 'package:hellogram/app/screens/home/home_page.dart';
+import 'package:hellogram/app/screens/login/login_page.dart';
+import 'package:hellogram/app/screens/profile/profile_page.dart';
+import 'package:hellogram/app/screens/slide_page/slide_page.dart';
+import 'package:hellogram/app/utils/check_logged.dart';
 import 'package:hellogram/app/widgets/icon_badge.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,6 +16,22 @@ class _MainScreenState extends State<MainScreen> {
   PageController _pageController;
   int _page = 0;
   dynamic _notify = false;
+  var userIdSession;
+
+  CheckLogged checkLogged = new CheckLogged();
+
+  void checkLogin() async {
+    var logged = await checkLogged.checkLogged();
+    if (logged != null) {
+      print("Logged Successfully");
+      userIdSession = logged;
+    } else {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (BuildContext context) => LoginPage(null)));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +42,9 @@ class _MainScreenState extends State<MainScreen> {
         onPageChanged: onPageChanged,
         children: [
           KeepAlivePage(child: HomePage()),
-          KeepAlivePage(child: HomePage()),
-          KeepAlivePage(child: HomePage()),
-          KeepAlivePage(child: HomePage())
+          KeepAlivePage(child: ArrayWidget()),
+          KeepAlivePage(child: CarouselDemo()),
+          KeepAlivePage(child: ProfilePage())
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -51,6 +72,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    checkLogin();
     _pageController = PageController();
   }
 

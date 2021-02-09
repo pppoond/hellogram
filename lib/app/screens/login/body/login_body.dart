@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:hellogram/app/api/api.dart';
 import 'package:hellogram/app/models/list/list.model.dart';
 import 'package:hellogram/app/screens/list/list_page.dart';
+import 'package:hellogram/app/screens/main_screen.dart';
+import 'package:hellogram/app/utils/shared_prefs.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginBody extends StatefulWidget {
   String register;
@@ -20,6 +23,7 @@ class _LoginBodyState extends State<LoginBody> {
   final _text = TextEditingController();
   bool _validate = false;
   String msgError = "";
+  var userIdSession;
 
   _getLogin(String username, String password) async {
     debugPrint('$username');
@@ -30,6 +34,7 @@ class _LoginBodyState extends State<LoginBody> {
 
     if (data != null) {
       print(data[0]['user_id'].toString());
+      userIdSession = data[0]['user_id'];
       _login();
       // _snackBarSucess();
       //Future.delayed(Duration(seconds: 3), _login);
@@ -176,10 +181,14 @@ class _LoginBodyState extends State<LoginBody> {
   }
 
   void _login() async {
-    ListModel listModel = new ListModel();
-    listModel.setUsername = _username.text;
+    SharedPrefs prefs = new SharedPrefs();
+    SharedPreferences pref = await prefs.prefs;
+    pref.setString("userIdPref", userIdSession);
+
+    // ListModel listModel = new ListModel();
+    // listModel.setUsername = _username.text;
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return ListPage(listModel);
+      return MainScreen();
     }));
 
     //_showAlertDialog('Status', 'Login Successfully');
