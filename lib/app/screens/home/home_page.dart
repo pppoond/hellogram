@@ -411,7 +411,7 @@ class _HomePageState extends State<HomePage> {
           tooltip: 'Next page',
           onPressed: () {
             Navigator.push(context, CupertinoPageRoute(builder: (context) {
-              return LoginPage(null);
+              return LoginPage();
             }));
           },
         ),
@@ -424,7 +424,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             //notify
             Navigator.push(context, CupertinoPageRoute(builder: (context) {
-              return LoginPage(null);
+              return LoginPage();
             }));
           },
         ),

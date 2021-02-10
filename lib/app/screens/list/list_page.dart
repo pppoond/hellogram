@@ -282,7 +282,7 @@ class _ListPageState extends State<ListPage> {
                 //     EnterExitRoute(
                 //         exitPage: ListPage(), enterPage: LoginPage()));
                 Navigator.push(context, CupertinoPageRoute(builder: (context) {
-                  return LoginPage(null);
+                  return LoginPage();
                 }));
               }),
         ],

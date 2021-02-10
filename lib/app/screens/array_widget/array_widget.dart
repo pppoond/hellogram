@@ -223,7 +223,7 @@ class _ArrayWidgetState extends State<ArrayWidget> {
             SharedPreferences pref = await prefs.prefs;
             pref.remove("userIdPref");
             Navigator.push(context, CupertinoPageRoute(builder: (context) {
-              return LoginPage(null);
+              return LoginPage();
             }));
           },
         ),

@@ -7,7 +7,7 @@ import 'package:hellogram/app/screens/login/bottom/login_bottom.dart';
 
 class LoginPage extends StatelessWidget {
   String register;
-  LoginPage(this.register);
+  LoginPage({this.register});
   @override
   Widget build(BuildContext context) {
     //WillPopScope is Block back button onWillpop in call method if return false is Block back and if return true to pop page.

@@ -26,7 +26,7 @@ class _RegisterBodyState extends State<RegisterBody> {
     if (data == "success") {
       register = data.toString();
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LoginPage(register);
+        return LoginPage();
       }));
     } else {}
   }
@@ -118,7 +118,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                     /*...*/
                     Navigator.pop(context,
                         MaterialPageRoute(builder: (context) {
-                      return LoginPage(register);
+                      return LoginPage();
                     }));
                   },
                   child: Text(

@@ -26,10 +26,8 @@ class _MainScreenState extends State<MainScreen> {
       print("Logged Successfully");
       userIdSession = logged;
     } else {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (BuildContext context) => LoginPage(null)));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
     }
   }
 
